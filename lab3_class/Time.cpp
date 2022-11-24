@@ -1,11 +1,13 @@
+#include "Time.h"
 #include <iostream>
 #include<string>
-#include "Time.h"
+
+
 using namespace std;
-//перегрузка операции присваивания
+
 Time& Time :: operator=(const Time& t)
 {
-	//проверка на самоприсваивание
+
 	if (&t == this) return *this;
 	min = t.min;
 	sec = t.sec;
@@ -15,25 +17,25 @@ bool Time::operator==(const Time& t)
 {
 	return false;
 }
-//перегрузка сравненения
+
 bool Time :: operator!=(const Time& t)
 {
 	int temp1 = min * 60 + sec;
 	int temp2 = t.min * 60 + t.sec;
 	bool z;
-	if (temp1 == temp2)
+	if (temp1 != temp2)
 	{
-		cout << "Временные файлы равны" << endl;
+		cout << "РРЅС‚РµСЂРІР°Р»С‹ РЅРµ СЂР°РІРЅС‹" << endl;
 		z = true;
 	}
 	else
 	{
-		cout << "Временные файлы НЕравны" << endl;
+		cout << "РРЅС‚РµСЂРІР°Р»С‹ СЂР°РІРЅС‹" << endl;
 		z = false;
 	}
 	return z;
 }
-//перегрузка бинарной операции сложения
+
 Time Time::operator+(const Time& t)
 {
 	int temp1 = min * 60 + sec;
@@ -57,14 +59,14 @@ Time Time::operator-(const Time& t)
 	p.sec = (temp1 - temp2) % 60;
 	return p;
 }
-//перегрузка глобальной функции-операции ввода
+
 istream& operator>>(istream& in, Time& t)
 {
 	cout << "min?"; in >> t.min;
 	cout << "sec?"; in >> t.sec;
 	return in;
 }
-//перегрузка глобальной функции-операции вывода
+
 ostream& operator<<(ostream& out, const Time& t)
 {
 	return (out << t.min << " : " << t.sec);

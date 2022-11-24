@@ -14,13 +14,11 @@ public:
 	int get_sec() { return sec; }
 	void set_min(int m) { min = m; }
 	void set_sec(int s) { sec = s; }
-	//перегруженные операции
 	Time& operator=(const Time&);
 	bool operator==(const Time& t);
 	bool operator!=(const Time& t);
 	Time operator-(const Time&);
 	Time operator+(const Time&);
-	//глобальные функции ввода-вывода
 	friend istream& operator>>(istream& in, Time& t);
 	friend ostream& operator<<(ostream& out, const Time& t);
 };
